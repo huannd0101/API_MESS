@@ -24,7 +24,8 @@ public class MessageController {
 	public ResponseEntity<?> getMessages() throws Exception{
 		List<Message> messages = messageReponsitory.findAll();
 		if (messages.size()==0) {
-			throw new Exception("Empty");
+			return ResponseEntity.status(404).body("trống, chưa có gì ");
+//			throw new Exception("Empty");
 		}
 		return ResponseEntity.status(200).body(messages);
 	}
